@@ -1,0 +1,92 @@
+@import "base.scss";
+@import "mixins.scss";
+@import "animated.scss";
+
+.button-primary {
+    @include forButton($base_color_orange, 4px);
+    @include forBorder(transparent, 1px);
+    color: $white_color;
+    padding: 8px 20px;
+}
+
+.button-secondary {
+    @include forButton($base_color_blue, 4px);
+    @include forBorder(transparent, 1px);
+    color: $white_color;
+    padding: 8px 20px;
+}
+
+.button-default {
+    @include forButton(transparent, 4px);
+    @include forBorder($light_grey_color, 1px);
+    color: $black_color;
+    padding: 8px 20px;
+}
+
+.button {
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, .4);
+        @include opacity(0);
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    &:focus {
+        outline: 0;
+    }
+    &:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+    }
+    &:hover {
+        @include opacity(.7);
+        transition-duration: .5s;
+    }
+}
+
+.button-block {
+    width: 100%;
+}
+
+.button-lg {
+    padding: 10px 14px;
+}
+
+.button-sm {
+    padding: 5px 10px;
+}
+
+.button_social {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px;
+    color: $black_color;
+    @include box-shadow(1px 1px 6px 0px rgba(30, 30, 30, 0.15));
+    @include border-radius(5px);
+    @include background-color($white_color);
+    @include transition(all .3s ease-in-out);
+    > {
+        i {
+            width: 40px;
+            height: 19px;
+            font-size: 16px;
+            padding: 0 10px;
+            border-right: 2px solid $black_color;
+        }
+        span {
+            padding-left: 10px;
+        }
+    }
+    &:hover {
+        @include box-shadow(1.5px 1.5px 8px 0px rgba(30, 30, 30, 0.20));
+    }
+}

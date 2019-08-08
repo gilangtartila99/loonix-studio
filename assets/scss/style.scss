@@ -1,0 +1,189 @@
+@import "base.scss";
+@import "mixins.scss";
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+a {
+  color: $base_color;
+  text-decoration: none;
+  cursor: pointer;
+  &:focus {
+      outline: 0;
+  }
+}
+
+::placeholder {
+  color: $grey_two_color;
+  @include opacity(1);
+}
+
+:-ms-input-placeholder, ::-ms-input-placeholder {
+  color: $grey_two_color;
+}
+
+.text-uppercase {
+  text-transform: uppercase
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font_roboto;
+  overflow: auto;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: $black_color;
+  z-index: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.full_backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+    @include animation(fadein .5s);
+    @include background-color(rgba(0,0,0,.5));
+}
+
+.main_container {
+  margin-top: 65px;
+}
+
+.page_container {
+  height: 100%;
+  min-height: 900px;
+}
+
+.container {
+  width: 974px;
+  height: 100%;
+  margin: 0 auto;
+  @include transition(all .5s ease-in-out);
+}
+
+.last_section {
+  padding-bottom: 60px;
+}
+
+.facebook {
+    color: $facebook_color !important;
+    > i {
+        border-right: 2px solid $facebook_color !important;
+    }
+}
+
+.twitter {
+    color: $twitter_color !important;
+    > i {
+        border-right: 2px solid $twitter_color !important;
+    }
+}
+
+.instagram {
+    color: $instagram_color !important;
+    > i {
+        border-right: 2px solid $instagram_color !important;
+    }
+}
+
+.youtube {
+    color: $youtube_color !important;
+    > i {
+        border-right: 2px solid $youtube_color !important;
+    }
+}
+
+.whatsapp {
+    color: $whatsapp_color !important;
+    > i {
+        border-right: 2px solid $whatsapp_color !important;
+    }
+}
+
+.box {
+  padding: 10px;
+  @include border-radius(4px);
+  border: 1px solid $light_grey_color;
+}
+
+.box_shadow {
+  padding: 10px;
+  @include border-radius(4px);
+  @include box-shadow(1px 1px 13px 0px rgba(185, 185, 185, 0.5))
+}
+
+.box_no_padding {
+  @include border-radius(4px);
+  border: 1px solid $light_grey_color;
+}
+
+.box_no_padding_shadow {
+  @include border-radius(4px);
+  @include box-shadow(1px 1px 13px 0px rgba(185, 185, 185, 0.5))
+}
+
+.shimmer_animation {
+  @include background(no-repeat #f3f3f3);
+  @include background-image(linear-gradient(to right, #f3f3f3 0, #eeeeee 20%, #e3e4e6 40%, #f3f3f3 100%));
+  @include background-size(800px);
+  display: inline-block;
+  position: relative;
+  @include animation-duration(1.5s);
+  @include animation-fill-mode(forwards);
+  @include animation-iteration-count(infinite);
+  @include animation-name(shimmer);
+  @include animation-timing-function(linear);
+}
+
+#scroll::-webkit-scrollbar-track
+{
+    @include box-shadow(inset 0 0 6px rgba(0,0,0,0.3));
+    @include border-radius(10px);
+    @include background-color($white_color);
+}
+
+#scroll::-webkit-scrollbar
+{
+    width: 5px;
+    @include background-color($white_color !important);
+}
+
+#scroll::-webkit-scrollbar-thumb
+{
+    @include border-radius(10px);
+    @include box-shadow(inset 0 0 6px rgba(0,0,0,.3) !important);
+    @include background-color($base_color !important);
+}
+
+.page-enter-active, .page-leave-active {
+    @include transition(all .1s ease-out);
+}
+.page-enter, .page-leave-active {
+    @include opacity(0);
+    @include transform-origin(50% 50%);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+}
