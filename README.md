@@ -1,6 +1,4 @@
-# CariAjaBlog
-
-> Cari Aja Blog Website
+# LoonixStudio
 
 ## Build Setup
 
